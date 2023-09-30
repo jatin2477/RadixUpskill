@@ -26,6 +26,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/sidebar', function () {
+    return view('sidebar');
+})->name('sidebar');
+
 Route::get('/login', [AuthManagerController::class, 'login'])->name('login');
 Route::post('/checkLogin', [AuthManagerController::class, 'checkLogin'])->name('checkLogin');
 Route::get('/register', [AuthManagerController::class, 'register'])->name('register');
