@@ -32,6 +32,7 @@ class AuthManagerController extends Controller
         ]);
 
         if($request->email == 'admin@upskill.com' && $request->password == 'admin123') {
+            session()->put('user_id', 1);
             return redirect(route('company.dashboard'));
         }
 
@@ -39,6 +40,7 @@ class AuthManagerController extends Controller
         if(Auth::attempt($credentials)) {
             $id = Auth::user()->id;
             $data = compact('id');
+            session()->put('user_id', $id);
             return redirect(route('employee.home'))->with($data);
         }
 
@@ -50,8 +52,6 @@ class AuthManagerController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required'
-            // 'contact' => 'required',
-            // 'address' => 'required'
         ]);
 
         $data['name'] = $request->name;
@@ -179,10 +179,5 @@ class AuthManagerController extends Controller
             return redirect()->route('employee.home')->with($data);
         }
         return redirect(route('login'));
-    }
-
-    public function socialiteRegister($user, $findUser)
-    {
-        
     }
 }
