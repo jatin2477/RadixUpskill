@@ -26,11 +26,12 @@
             background-color: white;
             padding: 20px;
             border-radius: 5px;
+            text-align: center;
         }
         .button {
             display: inline-block;
             background-color: #3498db;
-            color: white;
+            color: #ffffff !important;
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
@@ -51,7 +52,9 @@
     </div>
     <div class="content">
         <p>You are receiving this email because we received a password reset request for your account.</p>
-        <a class="button" href="{{ route('resetPassword', $token) }}">Reset Password</a>
+        <div class="btn">
+            <a class="button" href="{{ route('resetPassword', $token) }}">Reset Password</a>
+        </div>
         <p>If you did not request a password reset, no further action is required.</p>
     </div>
     <div class="footer">

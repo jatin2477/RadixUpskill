@@ -60,7 +60,7 @@ class forgotPasswordController extends Controller
 
         if(!$updatePassword)
         {
-            return redirect()->to(route('new-password'))->with("error", "Invalid");
+            return redirect()->to(route('resetPassword', $request->token))->with("error", "Please enter your registered email address");
         }
 
         User::where(["email" => $request->email])

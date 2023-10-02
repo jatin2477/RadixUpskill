@@ -12,6 +12,12 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
+                @if(session()->has('success'))
+                    <div class="alert alert-success">{{session('success')}}</div>
+                @endif
+                @if(session()->has('error'))
+                    <div class="alert alert-danger">{{session('error')}}</div>
+                @endif
                 <div class="card-header">Reset Password</div>
                 <div class="card-body">
                     <form action="{{ route('resetPasswordPost') }}" method="POST">
