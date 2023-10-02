@@ -23,7 +23,7 @@ use App\Models\Department;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 })->name('home');
 
 Route::get('/login', [AuthManagerController::class, 'login'])->name('login');
